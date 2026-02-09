@@ -15,34 +15,53 @@ As an **administrator**, I want to manage movies so that I can keep the movie ca
   * Title
   * Genre
   * Duration
+  * Number of Showings
+  * Actions (edit icon)
 * I can sort the grid by any column.
+* I click the edit icon to navigate to the edit form for that movie.
+
+![Movie listing](images/UC003-movie-listing.png)
 
 ## Add movie
 
-* I choose to add a new movie.
-* I am taken to the movie form view.
-* I enter the movie details: title, description, poster URL (optional), genre, duration in minutes.
-* All fields except poster URL are required.
-* I save the movie and am returned to the listing where the new movie appears.
+* I click the "+ Add Movie" button in the listing view.
+* I am taken to the add movie form view with a "Back to Movies" link at the top.
+* I enter the movie details:
+  * Title (required)
+  * Description (required, text area)
+  * Poster URL (optional)
+  * Genre (required, dropdown)
+  * Duration in minutes (required)
+* I click "Add Movie" to save, or "Cancel" to return without saving.
+* On save, I am returned to the listing where the new movie appears.
+
+![Add movie form](images/UC003-add-movie.png)
 
 ## Update movie
 
-* I select an existing movie from the listing.
-* I am taken to the movie form view with the current details filled in.
+* I click the edit icon on a movie in the listing.
+* I am taken to the edit movie form view with the current details filled in and a "Back to Movies" link at the top.
 * I modify the movie details.
-* I save the changes and am returned to the listing with the updated information.
+* I click "Update Movie" to save, or "Cancel" to return without saving.
+* On save, I am returned to the listing with the updated information.
+
+![Edit movie form](images/UC003-edit-movie.png)
 
 ## Delete movie
 
-* From the form view, I choose to delete a movie.
-* The system asks me to confirm the deletion.
+* From the edit form view, I click the "Delete Movie" button (shown in red).
+* A confirmation dialog appears showing the movie name and warning that this action cannot be undone.
+* If the movie has scheduled showings, the dialog displays a warning note explaining it can only be deleted if all showings are in the past.
+* I click "Delete" to confirm or "Cancel" to dismiss the dialog.
 * After confirming, the movie is removed and I am returned to the listing.
+
+![Delete confirmation dialog](images/UC003-delete-confirmation.png)
 
 ## Business rules
 
-* A movie that has showings in the future (today or later) cannot be deleted. The system shows an error explaining why.
+* A movie that has showings in the future (today or later) cannot be deleted. The confirmation dialog shows a warning note explaining why.
 
 ## UI
 
-* The listing view uses a sortable Grid.
-* Add and edit use a separate form view (not a side panel).
+* The listing view uses a sortable Grid with an "+ Add Movie" button in the top-right corner.
+* Add and edit use a separate form view (not a side panel) with a "Back to Movies" navigation link.
